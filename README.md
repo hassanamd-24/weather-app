@@ -2,7 +2,7 @@
 
 A sleek, fully responsive frontend web application built using **Vanilla JavaScript, HTML5, and CSS3**. This project connects directly to the **OpenWeather API** to deliver real-time meteorological metrics with a highly interactive user experience. Developed as a foundational milestone prior to transitioning into the React framework.
 
-🔗 **[Live Demo Link](https://github.io)**
+🔗 **[Live Demo Link](https://hassanamd-24.github.io/weather-app/)**
 
 ---
 
