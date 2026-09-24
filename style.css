@@ -57,6 +57,10 @@ body.mist, body.smoke, body.haze, body.fog { background: linear-gradient(135deg,
     gap: 0.5rem;
     margin-bottom: 1rem;
 }
+.search-container button {
+    /* Keep your existing button styles and ensure this line is there */
+    white-space: nowrap;
+}
 #city-input{
     flex: 1;
     min-width: 0; /* Prevents input elements from breaking flex layouts on tiny screens */

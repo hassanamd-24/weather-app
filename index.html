@@ -9,7 +9,14 @@
 <body>
     <div class="weather-app-card">
         <div class="search-container">
-            <input type="text" id="city-input" placeholder="Search for a city...(karachi,pk)">
+            <input type="text" id="city-input" placeholder="Search for a city...(karachi,pk)" list = "city-list">
+            <datalist id="city-list">
+                <option value="karachi,pk"></option>
+                <option value="london,uk"></option>
+                <option value="mumbai,in"></option>
+                <option value="dubai,uae"></option>
+                <option value="mecca,ksa"></option>
+            </datalist>
             <button id="search-btn">Search</button>
         </div>
         <div class="main-display">
@@ -38,7 +45,3 @@
     <script src="script.js"></script>
 </body>
 </html>
-
-
-<!-- const response = await fetch(`https://api.openweathermap.org/data/2.5/weather?q=${city}&units=metric&APPID=6175b983db3e8d160a5060c2b90a73bc`); -->
- <!-- icon.src = `https://openweathermap.org/img/wn/${data.weather[0].icon}@2x.png`; -->
