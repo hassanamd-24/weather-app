@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Weather</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="weather-app-card">
+        <div class="search-container">
+            <input type="text" id="city-input" placeholder="Search for a city...(karachi,pk)">
+            <button id="search-btn">Search</button>
+        </div>
+        <div class="main-display">
+            <div class="weather-info">
+                <h2 id="location-name"></h2>
+                <img src="" alt="weather icon" id="weather-icon">
+                <h1 id="currtemp"></h1>
+                <p id="condition-text"></p>
+            </div>
+        </div>
+        <div class="details-grid">
+            <div class="metric-card">
+                <p>Humidity</p>
+                <span id="humidity-val"></span>
+            </div>
+            <div class="metric-card">
+                <p>Wind Speed</p>
+                <span id="wind-val"></span>
+            </div>
+            <div class="metric-card">
+                <p>Feels Like</p>
+                <span id="feels-like-val"></span>
+            </div>
+        </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
+
+
+<!-- const response = await fetch(`https://api.openweathermap.org/data/2.5/weather?q=${city}&units=metric&APPID=6175b983db3e8d160a5060c2b90a73bc`); -->
+ <!-- icon.src = `https://openweathermap.org/img/wn/${data.weather[0].icon}@2x.png`; -->

@@ -1,0 +1,172 @@
+@import url('https://googleapis.com');
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    font-family: 'poppins',sans-serif;
+}
+body{
+    background: linear-gradient(135deg, #0f172a, #1e293b);
+    display: flex;
+    min-height: 100vh;
+    color: #f8fafc;
+    justify-content: center;
+    align-items: center;
+    /* 1. Base Body Background Transition */
+    transition: background 1s ease-in-out;
+}
+
+/* 2. Fade-In Animation Classes */
+.fade-in {
+    animation: fadeInAnimation 0.6s ease-out forwards;
+}
+@keyframes fadeInAnimation {
+    from {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* 3. Preset Background Gradients for Weather Conditions */
+body.clear-day { background: linear-gradient(135deg, #f59e0b, #d97706); } /* Sunny / Orange */
+body.clear-night { background: linear-gradient(135deg, #0f172a, #1e1b4b); } /* Clear Night / Dark Indigo */
+body.clouds { background: linear-gradient(135deg, #64748b, #334155); } /* Cloudy / Slate Gray */
+body.rain, body.drizzle { background: linear-gradient(135deg, #3b82f6, #1e3a8a); } /* Rainy / Deep Blue */
+body.thunderstorm { background: linear-gradient(135deg, #1e1b4b, #311042); } /* Storm / Dark Purple */
+body.snow { background: linear-gradient(135deg, #e2e8f0, #94a3b8); color: #0f172a; } /* Snowy / Soft White Light Gray */
+body.mist, body.smoke, body.haze, body.fog { background: linear-gradient(135deg, #cbd5e1, #64748b); } /* Hazy / Misty Gray */
+
+.weather-app-card{
+    background: rgba(30, 41, 59, 0.65);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    max-width: 450px;
+    width: 90%;
+    border-radius: 24px;
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+    padding: 2rem;
+    text-align: center;
+}
+.search-container{
+    display: flex;
+    gap: 0.5rem;
+    margin-bottom: 1rem;
+}
+#city-input{
+    flex: 1;
+    min-width: 0; /* Prevents input elements from breaking flex layouts on tiny screens */
+    background: rgba(15, 23, 42, 0.5);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    padding: 0.75rem 1rem;
+    border-radius: 12px;
+    color: #ffffff;
+    font-size: 0.95rem;
+    outline: none;
+    transition: all 0.3s ease;
+}
+
+#city-input:focus{
+    border-color: #38bdf8;
+    box-shadow: 0 0 0 3px rgba(56,189,248,0.2);
+}
+
+#search-btn{
+    background: #38bdf8;
+    color: #0f172a;
+    border: none;
+    padding: 0 1.25rem;
+    border-radius: 12px;
+    font-size: 0.95rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    white-space: nowrap;
+}
+
+#search-btn:hover {
+    background: #7dd3fc;
+    transform: translateY(-1px);
+}
+
+.main-display h2 {
+    font-size: 1.75rem;
+    font-weight: 600;
+    letter-spacing: -0.5px;
+    margin-bottom: 0.25rem;
+}
+
+.main-display h1 {
+    font-size: clamp(2.5rem, 10vw, 2rem); /* Prevents giant numbers from breaking lines on small devices */
+    font-weight: 400;
+    line-height: 1;
+    margin-bottom: 0.25rem;
+    letter-spacing: -1px;
+}
+
+.main-display p {
+    font-size: 0.95rem;
+    color: #94a3b8;
+    text-transform: capitalize;
+    margin-bottom: 2rem;
+}
+
+
+.details-grid{
+    display: grid;
+    /* Automatically drops to next line seamlessly if items lack breathing room */
+    grid-template-columns: repeat(auto-fit, minmax(105px, 1fr));
+    gap: 0.75rem;
+    width: 100%;
+}
+.metric-card{
+    background: rgba(15, 23, 42, 0.35);
+    border: 1px solid rgba(255, 255, 255, 0.04);
+    padding: 1rem 0.5rem;
+    border-radius: 14px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 0.25rem;
+    transition: transform 0.2s ease, background-color 0.2s ease;
+}
+.metric-card:hover {
+    transform: translateY(-4px);
+    background: rgba(15, 23, 42, 0.5);
+}
+
+.metric-card p {
+    font-size: 0.7rem;
+    text-transform: uppercase;
+    letter-spacing: 0.7px;
+    color: #94a3b8;
+    font-weight: 500;
+    white-space: nowrap;
+}
+
+.metric-card span {
+    font-size: 0.95rem;
+    font-weight: 600;
+    color: #ffffff;
+}
+
+#weather-icon {
+    width: clamp(70px, 15vw, 95px); /* Fluid size: Scales naturally between mobile and desktop */
+    height: auto;
+    margin: 0.5rem auto;
+    display: none;
+    filter: drop-shadow(0 8px 12px rgba(0, 0, 0, 0.15));
+}
+@media (max-width: 380px) {
+    .weather-app-card {
+        padding: 1.5rem 1rem; /* Shrinks container inner padding to maximize layout area on tiny screens */
+    }
+    .details-grid {
+        grid-template-columns: 1fr; /* Stacks cards vertically safely for super small screens */
+    }
+}
