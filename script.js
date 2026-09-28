@@ -17,7 +17,7 @@ searchbtn.addEventListener("click", async () => {
     if (!city) return alert("Please enter a city name");
 
     try {
-        const url = `https://api.openweathermap.org/data/2.5/weather?q=${city}&units=metric&APPID=6175b983db3e8d160a5060c2b90a73bc`;
+        const url = `https://api.openweathermap.org/data/2.5/weather?q=${city}&units=metric&APPID=${API_KEY}`;
         const response = await fetch(url);
         
         if (!response.ok) throw new Error("City not found");
